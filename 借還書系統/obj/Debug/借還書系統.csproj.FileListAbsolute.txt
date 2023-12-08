@@ -9,3 +9,6 @@ D:\教材\C#\借還書系統\借還書系統\obj\Debug\借還書系統.csproj.Ge
 D:\教材\C#\借還書系統\借還書系統\obj\Debug\借還書系統.csproj.CoreCompileInputs.cache
 D:\教材\C#\借還書系統\借還書系統\obj\Debug\借還書系統.exe
 D:\教材\C#\借還書系統\借還書系統\obj\Debug\借還書系統.pdb
+D:\教材\C#\借還書系統\借還書系統\bin\Debug\System.Data.SQLite.dll
+D:\教材\C#\借還書系統\借還書系統\bin\Debug\System.Data.SQLite.xml
+D:\教材\C#\借還書系統\借還書系統\obj\Debug\借還書系統.csproj.CopyComplete

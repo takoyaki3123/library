@@ -31,33 +31,33 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.idLabel = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.type = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pubCompany = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.author = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.count = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pubDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.buyDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.in_stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.publishDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.purchaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.typeLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label1.Location = new System.Drawing.Point(44, 48);
+            this.label1.Location = new System.Drawing.Point(44, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 18);
             this.label1.TabIndex = 0;
@@ -81,16 +81,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "書名";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label3.Location = new System.Drawing.Point(44, 232);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 18);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "日期";
-            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
@@ -98,13 +88,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(173, 24);
             this.comboBox1.TabIndex = 4;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(99, 232);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(173, 22);
-            this.dateTimePicker1.TabIndex = 5;
             // 
             // groupBox1
             // 
@@ -118,17 +101,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "借還書";
             // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(7, 22);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(59, 22);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "借書";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
@@ -140,15 +112,26 @@
             this.radioButton2.Text = "還書";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // radioButton1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
-            this.label5.Location = new System.Drawing.Point(96, 48);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(18, 18);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "--";
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(7, 22);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(59, 22);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "借書";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // idLabel
+            // 
+            this.idLabel.AutoSize = true;
+            this.idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.idLabel.Location = new System.Drawing.Point(96, 37);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(18, 18);
+            this.idLabel.TabIndex = 7;
+            this.idLabel.Text = "--";
             // 
             // tabControl1
             // 
@@ -172,6 +155,89 @@
             this.tabPage1.Text = "資料列表";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.type,
+            this.name,
+            this.publish,
+            this.author,
+            this.in_stock,
+            this.publishDate,
+            this.purchaseDate});
+            this.dataGridView1.Location = new System.Drawing.Point(0, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(529, 325);
+            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dGV1_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "編號";
+            this.id.MinimumWidth = 6;
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 125;
+            // 
+            // type
+            // 
+            this.type.HeaderText = "類型";
+            this.type.MinimumWidth = 6;
+            this.type.Name = "type";
+            this.type.Width = 125;
+            // 
+            // name
+            // 
+            this.name.HeaderText = "書名";
+            this.name.MinimumWidth = 6;
+            this.name.Name = "name";
+            this.name.ReadOnly = true;
+            this.name.Width = 125;
+            // 
+            // publish
+            // 
+            this.publish.HeaderText = "出版社";
+            this.publish.MinimumWidth = 6;
+            this.publish.Name = "publish";
+            this.publish.ReadOnly = true;
+            this.publish.Width = 125;
+            // 
+            // author
+            // 
+            this.author.HeaderText = "作者";
+            this.author.MinimumWidth = 6;
+            this.author.Name = "author";
+            this.author.ReadOnly = true;
+            this.author.Width = 125;
+            // 
+            // in_stock
+            // 
+            this.in_stock.HeaderText = "數量";
+            this.in_stock.MinimumWidth = 6;
+            this.in_stock.Name = "in_stock";
+            this.in_stock.ReadOnly = true;
+            this.in_stock.Width = 125;
+            // 
+            // publishDate
+            // 
+            this.publishDate.HeaderText = "出版日期";
+            this.publishDate.MinimumWidth = 6;
+            this.publishDate.Name = "publishDate";
+            this.publishDate.ReadOnly = true;
+            this.publishDate.Width = 125;
+            // 
+            // purchaseDate
+            // 
+            this.purchaseDate.HeaderText = "購入日期";
+            this.purchaseDate.MinimumWidth = 6;
+            this.purchaseDate.Name = "purchaseDate";
+            this.purchaseDate.ReadOnly = true;
+            this.purchaseDate.Width = 125;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.pictureBox1);
@@ -182,6 +248,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "借書圖表";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::借還書系統.Properties.Resources.Screenshot_20221209_064019;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 15);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(517, 313);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // tabPage3
             // 
@@ -195,119 +271,46 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(47, 340);
+            this.button1.Location = new System.Drawing.Point(99, 340);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 46);
+            this.button1.Size = new System.Drawing.Size(107, 46);
             this.button1.TabIndex = 9;
-            this.button1.Text = "輸入資料";
+            this.button1.Text = "確認";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // typeLabel
             // 
-            this.button2.Location = new System.Drawing.Point(160, 340);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 46);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "輸出資料";
-            this.button2.UseVisualStyleBackColor = true;
+            this.typeLabel.AutoSize = true;
+            this.typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.typeLabel.Location = new System.Drawing.Point(96, 66);
+            this.typeLabel.Name = "typeLabel";
+            this.typeLabel.Size = new System.Drawing.Size(18, 18);
+            this.typeLabel.TabIndex = 11;
+            this.typeLabel.Text = "--";
             // 
-            // dataGridView1
+            // label5
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.name,
-            this.pubCompany,
-            this.author,
-            this.count,
-            this.pubDate,
-            this.buyDate});
-            this.dataGridView1.Location = new System.Drawing.Point(0, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(529, 325);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "編號";
-            this.id.MinimumWidth = 6;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 125;
-            // 
-            // name
-            // 
-            this.name.HeaderText = "書名";
-            this.name.MinimumWidth = 6;
-            this.name.Name = "name";
-            this.name.ReadOnly = true;
-            this.name.Width = 125;
-            // 
-            // pubCompany
-            // 
-            this.pubCompany.HeaderText = "出版社";
-            this.pubCompany.MinimumWidth = 6;
-            this.pubCompany.Name = "pubCompany";
-            this.pubCompany.ReadOnly = true;
-            this.pubCompany.Width = 125;
-            // 
-            // author
-            // 
-            this.author.HeaderText = "作者";
-            this.author.MinimumWidth = 6;
-            this.author.Name = "author";
-            this.author.ReadOnly = true;
-            this.author.Width = 125;
-            // 
-            // count
-            // 
-            this.count.HeaderText = "數量";
-            this.count.MinimumWidth = 6;
-            this.count.Name = "count";
-            this.count.ReadOnly = true;
-            this.count.Width = 125;
-            // 
-            // pubDate
-            // 
-            this.pubDate.HeaderText = "出版日期";
-            this.pubDate.MinimumWidth = 6;
-            this.pubDate.Name = "pubDate";
-            this.pubDate.ReadOnly = true;
-            this.pubDate.Width = 125;
-            // 
-            // buyDate
-            // 
-            this.buyDate.HeaderText = "購入日期";
-            this.buyDate.MinimumWidth = 6;
-            this.buyDate.Name = "buyDate";
-            this.buyDate.ReadOnly = true;
-            this.buyDate.Width = 125;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::借還書系統.Properties.Resources.Screenshot_20221209_064019;
-            this.pictureBox1.Location = new System.Drawing.Point(6, 15);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(517, 313);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(254)));
+            this.label5.Location = new System.Drawing.Point(44, 66);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 18);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "類型";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(953, 435);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.typeLabel);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.idLabel);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -317,8 +320,8 @@
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -329,28 +332,28 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pubCompany;
-        private System.Windows.Forms.DataGridViewTextBoxColumn author;
-        private System.Windows.Forms.DataGridViewTextBoxColumn count;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pubDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn buyDate;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn type;
+        private System.Windows.Forms.DataGridViewTextBoxColumn name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn author;
+        private System.Windows.Forms.DataGridViewTextBoxColumn in_stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn publishDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn purchaseDate;
+        private System.Windows.Forms.Label typeLabel;
+        private System.Windows.Forms.Label label5;
     }
 }
 
