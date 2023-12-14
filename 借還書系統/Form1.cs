@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace 借還書系統
 {
@@ -102,11 +103,43 @@ namespace 借還書系統
             DBConfig.sqlite_dataReader = DBConfig.sqlite_cmd.ExecuteReader();
         }
 
+        private void showStatistics()
+        {
+            string sql = @"select COUNT(A.type),C.type_name from lend_return_list as A 
+                            left join library as B on A.book_id=B.id
+                            left join book_type as C on B.type=C.id
+                            where A.type=1";
+
+            string table = "lend_return_list as A";
+            string[] col = new string[] { "COUNT(A.type) AS num", "C.type_name" };
+            string joinSql = @" left join library as B on A.book_id=B.id
+                            left join book_type as C on B.type=C.id";
+            string condition = " AND A.type=1 GROUP BY B.type";
+            querySql(table, col, condition, joinSql);
+            chart1.Series.Clear();
+            if (DBConfig.sqlite_dataReader.HasRows)
+            {
+                while (DBConfig.sqlite_dataReader.Read())
+                {
+                    int num = Convert.ToInt32(DBConfig.sqlite_dataReader["num"]);
+                    string name = (DBConfig.sqlite_dataReader["type_name"]).ToString();
+                    Series series = new Series();
+                    series.Name = name;
+                    series.Points.Add(num);
+                    
+                    chart1.Series.Add(series);
+                }
+                DBConfig.sqlite_dataReader.Close();
+            }
+
+        }
+
         public Form1()
         {
             InitializeComponent();
             Load_DB();
             Show_DB();
+            showStatistics();
             this.idLabel.Text = index.ToString();
         }
 
@@ -133,24 +166,24 @@ namespace 借還書系統
                     }
                     DBConfig.sqlite_dataReader.Close();
                 }
-                //stock還有，更改stock及記錄到lend_return_list
-                if(stock > 0)
-                {
-                    sql = String.Format("UPDATE stock SET in_stock={0} WHERE book_id={1}", --stock, idLabel.Text);
-                    DBConfig.sqlite_cmd = new SQLiteCommand(sql, DBConfig.sqlite_connect);
-                    DBConfig.sqlite_cmd.ExecuteNonQuery();
-
-                    sql = String.Format("INSERT INTO lend_return_list(type, book_id, time) VALUES ('{0}','{1}','{2}')", 1, idLabel.Text, DateTime.Now.ToString("yyyy-M-D HH:mm:ss"));
-                    DBConfig.sqlite_cmd = new SQLiteCommand(sql, DBConfig.sqlite_connect);
-                    DBConfig.sqlite_cmd.ExecuteNonQuery();
-                    Show_DB();
-                }
 
                 //stock沒了，跳alert
-                if(stock == 0)
+                if (stock == 0)
                 {
                     MessageBox.Show("已無庫存");
+                    return;
                 }
+
+                //stock還有，更改stock及記錄到lend_return_list
+                sql = String.Format("UPDATE stock SET in_stock={0} WHERE book_id={1}", --stock, idLabel.Text);
+                DBConfig.sqlite_cmd = new SQLiteCommand(sql, DBConfig.sqlite_connect);
+                DBConfig.sqlite_cmd.ExecuteNonQuery();
+
+                sql = String.Format("INSERT INTO lend_return_list(type, book_id, time) VALUES ('{0}','{1}','{2}')", 1, idLabel.Text, DateTime.Now.ToString("yyyy-M-D HH:mm:ss"));
+                DBConfig.sqlite_cmd = new SQLiteCommand(sql, DBConfig.sqlite_connect);
+                DBConfig.sqlite_cmd.ExecuteNonQuery();
+                Show_DB();
+                showStatistics();
             }
             else //還書
             {
